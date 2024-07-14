@@ -1,76 +1,56 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-}
+document.addEventListener('DOMContentLoaded', function () {
+    const productContainer = document.getElementById('product-container');
+    const products = Array.from(document.querySelectorAll('.product-card'));
+    const yayButton = document.getElementById('yay-button');
+    const nayButton = document.getElementById('nay-button');
 
-#product-container {
-    width: 300px;
-    height: 500px;
-    position: relative;
-    overflow: hidden;
-}
+    let currentProductIndex = 0;
 
-.product-card {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.5s ease-in-out;
-}
+    // Hide all products initially except the first one
+    products.forEach((product, index) => {
+        if (index !== currentProductIndex) {
+            product.style.display = 'none';
+        }
+    });
 
-.product-card img {
-    max-width: 100%;
-    max-height: 60%;
-    border-radius: 8px 8px 0 0;
-}
+    function handleAction(action) {
+        const product = products[currentProductIndex];
 
-.product-card h2 {
-    margin: 16px 0;
-}
+        if (action === 'interested') {
+            product.style.transform = 'translateX(100%)';
+            sendSwipeData(product.dataset.id, 'interested');
+        } else if (action === 'not_interested') {
+            product.style.transform = 'translateX(-100%)';
+            sendSwipeData(product.dataset.id, 'not_interested');
+        }
 
-#buttons-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    width: 200px;
-}
+        setTimeout(() => {
+            product.style.display = 'none';
+            product.style.transform = 'none';
 
-.swipe-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+            currentProductIndex++;
+            if (currentProductIndex >= products.length) {
+                currentProductIndex = 0; // Loop back to the first product or handle end of products
+            }
 
-#nay-button {
-    background-color: #ffcccc;
-    color: #ff0000;
-}
+            const nextProduct = products[currentProductIndex];
+            nextProduct.style.display = 'flex';
+        }, 300); // Delay to allow swipe animation to complete
+    }
 
-#nay-button:hover {
-    background-color: #ff9999;
-}
+    function sendSwipeData(productId, action) {
+        fetch('/swipe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ productId: productId, action: action })
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+    }
 
-#yay-button {
-    background-color: #ccffcc;
-    color: #00ff00;
-}
-
-#yay-button:hover {
-    background-color: #99ff99;
-}
+    yayButton.addEventListener('click', () => handleAction('interested'));
+    nayButton.addEventListener('click', () => handleAction('not_interested'));
+});
