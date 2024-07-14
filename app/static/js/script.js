@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const productContainer = document.getElementById('product-container');
     const products = Array.from(document.querySelectorAll('.product-card'));
-    const yayButton = document.getElementById('yay-button');
-    const nayButton = document.getElementById('nay-button');
+    const yayButtons = document.querySelectorAll('#yay-button');
+    const nayButtons = document.querySelectorAll('#nay-button');
 
     let currentProductIndex = 0;
 
@@ -51,6 +51,11 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error('Error:', error));
     }
 
-    yayButton.addEventListener('click', () => handleAction('interested'));
-    nayButton.addEventListener('click', () => handleAction('not_interested'));
+    yayButtons.forEach(button => {
+        button.addEventListener('click', () => handleAction('interested'));
+    });
+
+    nayButtons.forEach(button => {
+        button.addEventListener('click', () => handleAction('not_interested'));
+    });
 });
