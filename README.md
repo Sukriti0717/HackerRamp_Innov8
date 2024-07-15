@@ -3,4 +3,5 @@ Enhancing User Engagement and Personalization through Swipe-Based Product Recomm
 
 To develop a swipe-based product interaction feature for the Myntra app that allows users to quickly indicate their interest in products by swiping right (interested) or left (not interested). This interaction model aims to improve user engagement, provide immediate and accurate feedback on user preferences, and enhance the recommendation system by incorporating real-time user input. 
 
-#Demo
+# Demo
+https://github.com/user-attachments/assets/28267899-f518-4b13-987b-98c3916fe93b
