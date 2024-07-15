@@ -15,18 +15,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function handleAction(action) {
         const product = products[currentProductIndex];
+        const productContent = product.querySelector('.product-content');
 
         if (action === 'interested') {
-            product.style.transform = 'translateX(100%)';
+            productContent.style.transform = 'translateX(100%)';
             sendSwipeData(product.dataset.id, 'interested');
         } else if (action === 'not_interested') {
-            product.style.transform = 'translateX(-100%)';
+            productContent.style.transform = 'translateX(-100%)';
             sendSwipeData(product.dataset.id, 'not_interested');
         }
 
         setTimeout(() => {
             product.style.display = 'none';
-            product.style.transform = 'none';
+            productContent.style.transform = 'none';
 
             currentProductIndex++;
             if (currentProductIndex >= products.length) {
