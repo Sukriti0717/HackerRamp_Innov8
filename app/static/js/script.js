@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const productContainer = document.getElementById('product-container');
     const products = Array.from(document.querySelectorAll('.product-card'));
-    const yayButtons = document.querySelectorAll('#yay-button');
-    const nayButtons = document.querySelectorAll('#nay-button');
+    const yayButtons = document.querySelectorAll('[data-action="interested"]');
+    const nayButtons = document.querySelectorAll('[data-action="not_interested"]');
 
     let currentProductIndex = 0;
 
@@ -15,19 +15,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function handleAction(action) {
         const product = products[currentProductIndex];
-        const productContent = product.querySelector('.product-content');
 
         if (action === 'interested') {
-            productContent.style.transform = 'translateX(100%)';
+            product.style.transform = 'translateX(100%)';
             sendSwipeData(product.dataset.id, 'interested');
         } else if (action === 'not_interested') {
-            productContent.style.transform = 'translateX(-100%)';
+            product.style.transform = 'translateX(-100%)';
             sendSwipeData(product.dataset.id, 'not_interested');
         }
 
         setTimeout(() => {
             product.style.display = 'none';
-            productContent.style.transform = 'none';
+            product.style.transform = 'none';
 
             currentProductIndex++;
             if (currentProductIndex >= products.length) {
