@@ -5,12 +5,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background: linear-gradient(135deg, #ffcccb, #ffe4b5); /* Light pink and light orange mashup */
 }
 
 #product-container {
     width: 300px;
-    height: 500px;
+    height: 500px; /* Increased height */
     position: relative;
     overflow: hidden;
 }
@@ -26,31 +26,34 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     transition: transform 0.5s ease-in-out;
+    padding-top: 10px;
 }
 
 .myntra-logo {
-    width: 90px;  /* Adjust size as needed */
-    margin-top: 20px;
+    width: 90px; /* Small size for logo */
+    margin-top: 10px;
 }
 
 .product-card img {
     max-width: 100%;
-    max-height: 60%;
-    border-radius: 8px 8px 0 0;
+    max-height: 80%;
+    margin-bottom: 10px; /* Space between image and product name */
 }
 
 .product-card h2 {
-    margin: 16px 0;
+    margin: 10px 0;
 }
 
 .buttons-container {
     width: 100%;
-    padding: 20px;
+    padding: 20px 0;
     display: flex;
     justify-content: space-around;
+    position: absolute;
+    bottom: 0; 
     background-color: #fff;
     border-top: 1px solid #f0f0f0;
     border-radius: 0 0 8px 8px;
