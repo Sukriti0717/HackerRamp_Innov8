@@ -1,18 +1,37 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #ffcccb, #ffe4b5); /* Light pink and light orange mashup */
+    background: linear-gradient(to right, #ffcccb, #ffe4b5); /* Light pink and light orange */
 }
 
 #product-container {
     width: 300px;
-    height: 500px; /* Increased height */
+    height: 500px;
     position: relative;
     overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-container {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.myntra-logo {
+    width: 90px;  /* Adjust size as needed */
+}
+
+.swipe-frame {
+    flex: 1; /* Takes up remaining space */
+    position: relative;
+    overflow: hidden; /* Hide overflow */
 }
 
 .product-card {
@@ -21,42 +40,30 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Align items to the top */
     align-items: center;
     transition: transform 0.5s ease-in-out;
-    padding-top: 10px;
 }
 
-.myntra-logo {
-    width: 90px; /* Small size for logo */
-    margin-top: 10px;
-}
-
-.product-card img {
+.product-image {
     max-width: 100%;
-    max-height: 80%;
-    margin-bottom: 10px; /* Space between image and product name */
+    max-height: 80%; /* Adjust height as needed */
+    border-radius: 8px 8px 0 0;
 }
 
 .product-card h2 {
-    margin: 10px 0;
+    margin: 16px 0;
+    text-align: center; /* Center align product name */
 }
 
 .buttons-container {
-    width: 100%;
-    padding: 20px 0;
     display: flex;
     justify-content: space-around;
-    position: absolute;
-    bottom: 0; 
+    padding: 20px;
     background-color: #fff;
     border-top: 1px solid #f0f0f0;
-    border-radius: 0 0 8px 8px;
 }
 
 .swipe-button {
@@ -68,20 +75,20 @@ body {
     transition: background-color 0.3s ease;
 }
 
-#nay-button {
+.swipe-button[data-action="not_interested"] {
     background-color: #ffcccc;
     color: #ff0000;
 }
 
-#nay-button:hover {
+.swipe-button[data-action="not_interested"]:hover {
     background-color: #ff9999;
 }
 
-#yay-button {
+.swipe-button[data-action="interested"] {
     background-color: #ccffcc;
     color: #00ff00;
 }
 
-#yay-button:hover {
+.swipe-button[data-action="interested"]:hover {
     background-color: #99ff99;
 }
