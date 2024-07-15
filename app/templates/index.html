@@ -9,50 +9,34 @@
 <body>
     <div id="product-container">
         <div class="product-card" data-id="1">
-            <img src="{{ url_for('static', filename='images/myntra_logo.png') }}" alt="Myntra Logo" class="myntra-logo">
+            <img src="{{ url_for('static', filename='images/myntra-logo.png') }}" alt="Myntra Logo" class="myntra-logo">
             <img src="{{ url_for('static', filename='images/product1.jpg') }}" alt="Product Image">
             <h2>Product 1</h2>
-            <div class="buttons-container">
-                <button id="nay-button" class="swipe-button" data-action="not_interested">Nay</button>
-                <button id="yay-button" class="swipe-button" data-action="interested">Yay</button>
-            </div>
         </div>
         <div class="product-card" data-id="2">
-            <img src="{{ url_for('static', filename='images/myntra_logo.png') }}" alt="Myntra Logo" class="myntra-logo">
+            <img src="{{ url_for('static', filename='images/myntra-logo.png') }}" alt="Myntra Logo" class="myntra-logo">
             <img src="{{ url_for('static', filename='images/product2.jpg') }}" alt="Product Image">
             <h2>Product 2</h2>
-            <div class="buttons-container">
-                <button id="nay-button" class="swipe-button" data-action="not_interested">Nay</button>
-                <button id="yay-button" class="swipe-button" data-action="interested">Yay</button>
-            </div>
         </div>
         <div class="product-card" data-id="3">
-            <img src="{{ url_for('static', filename='images/myntra_logo.png') }}" alt="Myntra Logo" class="myntra-logo">
+            <img src="{{ url_for('static', filename='images/myntra-logo.png') }}" alt="Myntra Logo" class="myntra-logo">
             <img src="{{ url_for('static', filename='images/product3.jpg') }}" alt="Product Image">
             <h2>Product 3</h2>
-            <div class="buttons-container">
-                <button id="nay-button" class="swipe-button" data-action="not_interested">Nay</button>
-                <button id="yay-button" class="swipe-button" data-action="interested">Yay</button>
-            </div>
         </div>
         <div class="product-card" data-id="4">
-            <img src="{{ url_for('static', filename='images/myntra_logo.png') }}" alt="Myntra Logo" class="myntra-logo">
+            <img src="{{ url_for('static', filename='images/myntra-logo.png') }}" alt="Myntra Logo" class="myntra-logo">
             <img src="{{ url_for('static', filename='images/product4.jpg') }}" alt="Product Image">
             <h2>Product 4</h2>
-            <div class="buttons-container">
-                <button id="nay-button" class="swipe-button" data-action="not_interested">Nay</button>
-                <button id="yay-button" class="swipe-button" data-action="interested">Yay</button>
-            </div>
         </div>
         <div class="product-card" data-id="5">
-            <img src="{{ url_for('static', filename='images/myntra_logo.png') }}" alt="Myntra Logo" class="myntra-logo">
+            <img src="{{ url_for('static', filename='images/myntra-logo.png') }}" alt="Myntra Logo" class="myntra-logo">
             <img src="{{ url_for('static', filename='images/product5.jpg') }}" alt="Product Image">
             <h2>Product 5</h2>
-            <div class="buttons-container">
-                <button id="nay-button" class="swipe-button" data-action="not_interested">Nay</button>
-                <button id="yay-button" class="swipe-button" data-action="interested">Yay</button>
-            </div>
         </div>
+    </div>
+    <div id="buttons-container">
+        <button id="nay-button" class="swipe-button" data-action="not_interested">Nay</button>
+        <button id="yay-button" class="swipe-button" data-action="interested">Yay</button>
     </div>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
