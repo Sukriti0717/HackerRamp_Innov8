@@ -26,3 +26,6 @@ https://github.com/user-attachments/assets/28267899-f518-4b13-987b-98c3916fe93b
 - Increased Sales: By showing users more products they are likely to be interested in, the likelihood of purchase increases and hence increasing conversion rates.
 - User Retention: An engaging and personalized shopping experience fosters customer loyalty and encourages repeat visits, driving long-term customer retention and increasing lifetime value.
 - Marketing: The detailed preference data collected can be used to create highly targeted marketing campaigns, ensuring that promotional efforts reach the right audience with the right products.
+
+Dataset:
+https://www.kaggle.com/datasets/hiteshsuthar101/myntra-fashion-product-dataset
