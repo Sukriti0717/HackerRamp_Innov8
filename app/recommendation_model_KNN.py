@@ -54,7 +54,7 @@ def recommend_item(image_id, user_preference, k=5):
         recommended_index = sorted_scores[k-2][0]
     else:  # user_preference == -1
         # User disliked the item, recommend the least similar item
-        recommended_index = sorted_scores[-1][0]
+        recommended_index = sorted_scores[k+1][0]
     
     recommended_item = df.iloc[recommended_index]
     return recommended_item
